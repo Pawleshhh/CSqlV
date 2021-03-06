@@ -25,6 +25,8 @@ namespace CSqlV
 
         #region Private fields
 
+        //private int currentLine;
+
         #endregion
 
         #region Properties
@@ -102,7 +104,7 @@ namespace CSqlV
                 return $"'{data}'";
             else if (sqlDataType == SqlDataType.Int)
             {
-                if (long.TryParse(data, out _))
+                if (double.TryParse(data, out _))
                     return data;
                 else
                     throw new FormatException("Given value is not a number");

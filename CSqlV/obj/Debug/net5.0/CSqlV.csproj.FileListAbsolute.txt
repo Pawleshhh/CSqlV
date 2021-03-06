@@ -1,0 +1,12 @@
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\bin\Debug\net5.0\CSqlV.deps.json
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\bin\Debug\net5.0\CSqlV.dll
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\bin\Debug\net5.0\ref\CSqlV.dll
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\bin\Debug\net5.0\CSqlV.pdb
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.csprojAssemblyReference.cache
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.GeneratedMSBuildEditorConfig.editorconfig
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.AssemblyInfoInputs.cache
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.AssemblyInfo.cs
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.csproj.CoreCompileInputs.cache
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.dll
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\ref\CSqlV.dll
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.pdb

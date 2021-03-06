@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "ConsoleCSqlV/1.0.0": {
+        "dependencies": {
+          "CSqlV": "1.0.0"
+        },
+        "runtime": {
+          "ConsoleCSqlV.dll": {}
+        }
+      },
+      "CSqlV/1.0.0": {
+        "runtime": {
+          "CSqlV.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "ConsoleCSqlV/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CSqlV/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
