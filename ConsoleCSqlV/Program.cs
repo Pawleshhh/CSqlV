@@ -7,15 +7,19 @@ namespace ConsoleCSqlV
     {
         static void Main(string[] args)
         {
-            CsvReader csvReader = new CsvReader(@"N:\Programowanie\C#\Moje projekty\Console\CSqlV\ConsoleCSqlV\testData.csv");
-            csvReader.HasHeader = true;
-            csvReader.Trim = true;
+            CsvReader csvReader = new CsvReader(@"N:\Programowanie\C#\Moje projekty\Console\CSqlV\students.csv")
+            {
+                Separator = ",",
+                HasHeader = true
+            };
 
-            var result = csvReader.GetRows();
+            SqlTableMaker sqlTableMaker = new SqlTableMaker();
+
+            var result = sqlTableMaker.CreateInsertToQuery(csvReader.GetRows());
 
             foreach(var row in result)
             {
-                Console.WriteLine(string.Join('|', row));
+                Console.WriteLine(row);
             }
         }
     }

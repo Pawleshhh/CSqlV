@@ -130,9 +130,9 @@ namespace CSqlV
 
     }
 
-    public enum SqlDataType
-    {
-        Varchar,
-        Int
-    }
+    //public enum SqlDataType
+    //{
+    //    Varchar,
+    //    Int
+    //}
 }
