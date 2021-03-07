@@ -8,7 +8,7 @@ namespace CSqlV
         {
             Csqlv csqlv = new Csqlv();
 
-            csqlv.CreateSqlTable(args[1]);
+            csqlv.CreateSqlTable(args[0]);
         }
     }
 }
