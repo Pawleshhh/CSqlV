@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace CSqlV
 {
-    public class CsvReader
+    internal class CsvReader
     {
 
         #region Constructors
