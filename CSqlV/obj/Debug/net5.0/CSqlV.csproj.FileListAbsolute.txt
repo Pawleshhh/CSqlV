@@ -13,3 +13,6 @@ N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.dll
 N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\ref\CSqlV.dll
 N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.pdb
 N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.genruntimeconfig.cache
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\bin\Debug\net5.0\NDesk.Options.dll
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.csprojAssemblyReference.cache
+N:\Programowanie\C#\Moje projekty\Console\CSqlV\CSqlV\obj\Debug\net5.0\CSqlV.csproj.CopyComplete

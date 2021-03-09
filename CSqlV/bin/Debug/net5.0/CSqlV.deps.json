@@ -7,8 +7,19 @@
   "targets": {
     ".NETCoreApp,Version=v5.0": {
       "CSqlV/1.0.0": {
+        "dependencies": {
+          "NDesk.Options": "0.2.1"
+        },
         "runtime": {
           "CSqlV.dll": {}
+        }
+      },
+      "NDesk.Options/0.2.1": {
+        "runtime": {
+          "lib/NDesk.Options.dll": {
+            "assemblyVersion": "0.2.1.0",
+            "fileVersion": "0.2.1.0"
+          }
         }
       }
     }
@@ -18,6 +29,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "NDesk.Options/0.2.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1bkSjNET5wxY+kZfTVdstkcDYF98mEbxWrG5FxJG5MTjQ0d9E2ezNfK/InvsVB50P0TiXO2ovD/SB/57EH6Zmw==",
+      "path": "ndesk.options/0.2.1",
+      "hashPath": "ndesk.options.0.2.1.nupkg.sha512"
     }
   }
 }

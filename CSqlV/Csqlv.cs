@@ -20,6 +20,7 @@ namespace CSqlV
         private Dictionary<int, string> sqlColumnNames = new Dictionary<int, string>();
 
         private readonly SqlTableMaker sqlTableMaker = new SqlTableMaker();
+        private readonly CsvReader csvReader = new CsvReader();
 
         #endregion
 
@@ -28,21 +29,27 @@ namespace CSqlV
         public IReadOnlyDictionary<int, SqlDataType> ColumnTypes => sqlColumnTypes;
         public IReadOnlyDictionary<int, string> ColumnNames => sqlColumnNames;
 
+        public ICsvReader CsvReader => csvReader;
+        public ISqlTableMaker SqlTableMaker => sqlTableMaker;
+
+        public string Output { get; set; } = "./table.db";
+
         #endregion
 
         #region Methods
 
-        public string[] CreateSqlTable(string csvFile, string output = "./table.db")
+        public string[] CreateSqlTable(string csvFile)
         {
-            using(StreamWriter writer = new StreamWriter(output))
+            using(StreamWriter writer = new StreamWriter(Output))
             {
-                CsvReader csvReader = new CsvReader(csvFile);
-
-                var rows = csvReader.GetRows();
+                var rows = csvReader.GetRows(csvFile);
                 string[] queries = sqlTableMaker.CreateInsertToQuery(rows);
 
                 foreach (var query in queries)
+                {
                     writer.WriteLine(query);
+                    Console.WriteLine(query);
+                }
 
                 return queries;
             }

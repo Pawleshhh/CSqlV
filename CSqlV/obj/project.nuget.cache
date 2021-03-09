@@ -1,8 +1,21 @@
 {
   "version": 2,
-  "dgSpecHash": "VEgFRdkYtufvfnBLcDD2C2l3xTBhOqDPH2dDOnDRS8GyaIIHqbX04TSyakmDrlEotkuAPPWi7UsO1f0tD12HMg==",
+  "dgSpecHash": "2JrQz0+gpPEO7KMBKFeVncjZp+UuV3lDFGDEM6cMDkDEO6xKQvbnZRbLr97ZLTB0q+J8sUCIdgM5pWwubYjlew==",
   "success": true,
   "projectFilePath": "N:\\Programowanie\\C#\\Moje projekty\\Console\\CSqlV\\CSqlV\\CSqlV.csproj",
-  "expectedPackageFiles": [],
-  "logs": []
+  "expectedPackageFiles": [
+    "C:\\Users\\1\\.nuget\\packages\\ndesk.options\\0.2.1\\ndesk.options.0.2.1.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'NDesk.Options 0.2.1' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework 'net5.0'. This package may not be fully compatible with your project.",
+      "libraryId": "NDesk.Options",
+      "targetGraphs": [
+        "net5.0"
+      ]
+    }
+  ]
 }

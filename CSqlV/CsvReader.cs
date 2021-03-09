@@ -5,32 +5,14 @@ using System.Linq;
 
 namespace CSqlV
 {
-    internal class CsvReader
+    internal class CsvReader : ICsvReader
     {
-
-        #region Constructors
-
-        public CsvReader(string csvFile)
-        {
-            if (!File.Exists(csvFile))
-                throw new ArgumentException($"There is no such file ({csvFile})", nameof(csvFile));
-
-            this.csvFile = csvFile;
-        }
-
-        #endregion
-
-        #region Private fields
-
-        private readonly string csvFile;
-
-        #endregion
 
         #region Properties
 
-        public bool HasHeader { get; set; } = true;
-        public bool Trim { get; set; } = true;
-        public bool FillEmpty { get; set; } = true;
+        public bool HasHeader { get; set; }
+        public bool Trim { get; set; }
+        public bool FillEmpty { get; set; }
 
         public string Separator { get; set; } = ",";
 
@@ -38,7 +20,7 @@ namespace CSqlV
 
         #region Methods
 
-        public List<string[]> GetRows()
+        public List<string[]> GetRows(string csvFile)
         {
             using(StreamReader reader = new StreamReader(csvFile))
             {

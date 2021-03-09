@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CSqlV
 {
-    internal class SqlTableMaker
+    internal class SqlTableMaker : ISqlTableMaker
     {
 
         #region Constructors
