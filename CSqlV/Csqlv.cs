@@ -16,8 +16,8 @@ namespace CSqlV
 
         #region Private fields
 
-        private Dictionary<int, SqlDataType> sqlColumnTypes = new Dictionary<int, SqlDataType>();
-        private Dictionary<int, string> sqlColumnNames = new Dictionary<int, string>();
+        private List<SqlDataType> sqlColumnTypes = new List<SqlDataType>();
+        private List<string> sqlColumnNames = new List<string>();
 
         private readonly SqlTableMaker sqlTableMaker = new SqlTableMaker();
         private readonly CsvReader csvReader = new CsvReader();
@@ -26,8 +26,8 @@ namespace CSqlV
 
         #region Properties
 
-        public IReadOnlyDictionary<int, SqlDataType> ColumnTypes => sqlColumnTypes;
-        public IReadOnlyDictionary<int, string> ColumnNames => sqlColumnNames;
+        public IReadOnlyList<SqlDataType> ColumnTypes => sqlColumnTypes;
+        public IReadOnlyList<string> ColumnNames => sqlColumnNames;
 
         public ICsvReader CsvReader => csvReader;
         public ISqlTableMaker SqlTableMaker => sqlTableMaker;
@@ -43,7 +43,7 @@ namespace CSqlV
             using(StreamWriter writer = new StreamWriter(Output))
             {
                 var rows = csvReader.GetRows(csvFile);
-                string[] queries = sqlTableMaker.CreateInsertToQuery(rows);
+                string[] queries = sqlTableMaker.CreateInsertToQuery(rows, sqlColumnTypes.ToArray());
 
                 foreach (var query in queries)
                 {
@@ -59,44 +59,32 @@ namespace CSqlV
         {
             ThrowColumnIndexOutOfRange(columnIndex);
 
-            if (sqlColumnNames.ContainsKey(columnIndex))
-                return sqlColumnNames[columnIndex];
-
-            return null;
+            return sqlColumnNames[columnIndex];
         }
 
-        public void SetColumnName(int columnIndex, string columnName)
+        public void SetColumnName(string columnName)
         {
-            ThrowColumnIndexOutOfRange(columnIndex);
-
             if (columnName == null)
                 throw new ArgumentNullException(nameof(columnName));
 
-            if (sqlColumnNames.ContainsKey(columnIndex))
-                sqlColumnNames[columnIndex] = columnName;
-            else
-                sqlColumnNames.Add(columnIndex, columnName);
+            sqlColumnNames.Add(columnName);
         }
 
-        public void SetColumnName(int[] columnIndexes, string[] columnNames)
+        public void SetColumnName(string[] columnNames)
         {
-            if (columnIndexes == null)
-                throw new ArgumentNullException(nameof(columnIndexes));
             if (columnNames == null)
                 throw new ArgumentNullException(nameof(columnNames));
-            if (columnIndexes.Length != columnNames.Length)
-                throw new InvalidOperationException("The number of column indexes is not equal to the number of column names.");
 
-            int length = columnIndexes.Length;
+            int length = columnNames.Length;
             for (int i = 0; i < length; i++)
-                SetColumnName(columnIndexes[i], columnNames[i]);
+                SetColumnName(columnNames[i]);
         }
 
         public void RemoveColumnName(int columnIndex)
         {
             ThrowColumnIndexOutOfRange(columnIndex);
 
-            sqlColumnNames.Remove(columnIndex);
+            sqlColumnNames.RemoveAt(columnIndex);
         }
 
         public void ClearColumnNames()
@@ -106,44 +94,34 @@ namespace CSqlV
         {
             ThrowColumnIndexOutOfRange(columnIndex);
 
-            if (sqlColumnTypes.ContainsKey(columnIndex))
+            if (columnIndex < sqlColumnTypes.Count)
                 return sqlColumnTypes[columnIndex];
 
             return SqlDataType.Varchar;
         }
 
-        public void SetColumnType(int columnIndex, SqlDataType sqlDataType)
+        public void SetColumnType(SqlDataType sqlDataType)
         {
-            ThrowColumnIndexOutOfRange(columnIndex);
-
             if (!Enum.IsDefined(typeof(SqlDataType), sqlDataType))
                 throw new ArgumentException(null, nameof(sqlDataType));
 
-            if (sqlColumnTypes.ContainsKey(columnIndex))
-                sqlColumnTypes[columnIndex] = sqlDataType;
-            else
-                sqlColumnTypes.Add(columnIndex, sqlDataType);
+            sqlColumnTypes.Add(sqlDataType);
         }
 
-        public void SetColumnType(int[] columnIndexes, SqlDataType[] sqlDataTypes)
+        public void SetColumnType(SqlDataType[] sqlDataTypes)
         {
-            if (columnIndexes == null)
-                throw new ArgumentNullException(nameof(columnIndexes));
             if (sqlDataTypes == null)
                 throw new ArgumentNullException(nameof(sqlDataTypes));
-            if (columnIndexes.Length != sqlDataTypes.Length)
-                throw new InvalidOperationException("The number of column indexes is not equal to the number of SQL data types.");
-
-            int length = columnIndexes.Length;
+            int length = sqlDataTypes.Length;
             for (int i = 0; i < length; i++)
-                SetColumnType(columnIndexes[i], sqlDataTypes[i]);
+                SetColumnType(sqlDataTypes[i]);
         }
 
         public void RemoveColumnType(int columnIndex)
         {
             ThrowColumnIndexOutOfRange(columnIndex);
 
-            sqlColumnTypes.Remove(columnIndex);
+            sqlColumnTypes.RemoveAt(columnIndex);
         }
 
         public void ClearColumnTypes()

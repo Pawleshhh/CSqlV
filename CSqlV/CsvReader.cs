@@ -10,6 +10,9 @@ namespace CSqlV
 
         #region Properties
 
+        public int Start { get; set; }
+        public int Count { get; set; }
+
         public bool HasHeader { get; set; }
         public bool Trim { get; set; }
         public bool FillEmpty { get; set; }
@@ -49,7 +52,17 @@ namespace CSqlV
         {
             StringSplitOptions splitOptions = Trim ? StringSplitOptions.TrimEntries : StringSplitOptions.None;
 
-            return line.Split(Separator, splitOptions);
+            if (Count == 0 && Start == 0)
+                return line.Split(Separator, splitOptions);
+            else
+            {
+                var row = line.Split(Separator, splitOptions);
+
+                if (Count == 0)
+                    return row[Start..^1];
+                else
+                    return row[Start..(Start + Count)];
+            }
         }
 
         private void FillEmptyCells(List<string[]> rows)

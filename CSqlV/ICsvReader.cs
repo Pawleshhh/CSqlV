@@ -8,6 +8,10 @@ namespace CSqlV
 {
     public interface ICsvReader
     {
+        int Start { get; set; }
+        int Count { get; set; }
+
+
         bool HasHeader { get; set; }
         bool Trim { get; set; }
         bool FillEmpty { get; set; }
