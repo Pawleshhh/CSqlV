@@ -43,7 +43,7 @@ namespace CSqlV
             using(StreamWriter writer = new StreamWriter(Output))
             {
                 var rows = csvReader.GetRows(csvFile);
-                string[] queries = sqlTableMaker.CreateInsertToQuery(rows, sqlColumnTypes.ToArray());
+                string[] queries = sqlTableMaker.CreateInsertToQuery(rows, ColumnNames.ToArray(), sqlColumnTypes.ToArray());
 
                 foreach (var query in queries)
                 {

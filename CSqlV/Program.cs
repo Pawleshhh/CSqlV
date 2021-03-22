@@ -38,6 +38,15 @@ namespace CSqlV
                         csqlv.SetColumnType(GetSqlDataType(type));
                     }
                 });
+                p.Add("columns=", columns =>
+                {
+                    var s_columns = columns.Split(",", StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries);
+
+                    foreach (var column in s_columns)
+                    {
+                        csqlv.SetColumnName(column);
+                    }
+                });
                 p.Add("help", _ => PrintHelp());
 
                 var arguments = p.Parse(args);
